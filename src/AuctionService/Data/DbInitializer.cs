@@ -18,14 +18,14 @@ public class DbInitializer
 
         if (context.Auctions.Any())
         {
-            System.Console.WriteLine("Already have data. No need to seed");
+            Console.WriteLine("Already have data. No need to seed");
             return;
         }
 
         var auctions = new List<Auction>()
         {
              // 1 Ford GT
-            new() 
+            new()
             {
                 Id = Guid.Parse("afbee524-5972-4075-8800-7d1f9d7b0a0c"),
                 Status = Status.Live,
