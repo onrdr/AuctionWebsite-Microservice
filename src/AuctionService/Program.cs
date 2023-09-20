@@ -30,6 +30,11 @@ builder.Services.AddMassTransit(x =>
 
     x.UsingRabbitMq((context, configuration) =>
     {
+        configuration.Host(builder.Configuration["RabbitMq:Host"], "/", host => 
+        {
+            host.Username(builder.Configuration.GetValue("RabbitMq:Username", "guest"));
+            host.Username(builder.Configuration.GetValue("RabbitMq:Password", "guest"));
+        });
         configuration.ConfigureEndpoints(context);
     });
 });
@@ -40,7 +45,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.Authority = builder.Configuration["IdentityServiceUrl"];
         options.RequireHttpsMetadata = false;
         options.TokenValidationParameters.ValidateAudience = false;
-        options.TokenValidationParameters.NameClaimType = "username";
+        options.TokenValidationParameters.NameClaimType = "username"; 
     });
 
 var app = builder.Build();
