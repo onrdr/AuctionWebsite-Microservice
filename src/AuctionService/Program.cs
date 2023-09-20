@@ -1,4 +1,4 @@
-using AuctionService;
+using AuctionService.Consumers;
 using AuctionService.Data;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,7 +35,7 @@ builder.Services.AddMassTransit(x =>
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => 
+    .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration["IdentityServiceUrl"];
         options.RequireHttpsMetadata = false;
