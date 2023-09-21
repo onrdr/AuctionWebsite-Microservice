@@ -84,7 +84,7 @@ public class DbInitializer
                 Status = Status.ReserveNotMet,
                 ReservePrice = 50000,
                 Seller = "tom",
-                AuctionEnd = DateTime.UtcNow.AddDays(-10),
+                AuctionEnd = DateTime.UtcNow.AddDays(10),
                 Item = new Item
                 {
                     Make = "Mercedes",
@@ -191,7 +191,7 @@ public class DbInitializer
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(48),
+                AuctionEnd = DateTime.UtcNow.AddDays(-10),
                 Item = new Item
                 {
                     Make = "Ford",
